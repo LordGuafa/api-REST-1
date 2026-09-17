@@ -1,7 +1,6 @@
-require("dotenv");
-
-const express = require("express");
-const librosRoutes = require("./routes/libros.routes");
+import "dotenv";
+import express from "express";
+import librosRoutes from "./routes/libros.routes";
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -18,5 +17,5 @@ app.get("/", (req: any, res: any) => {
 });
 
 app.listen(PORT, () => {
-  console.log(`Servidor escuchando en el puerto ${PORT}`);
+  console.log(`Servidor escuchando en el puerto ${PORT}`); 
 });
