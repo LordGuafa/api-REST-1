@@ -1,6 +1,6 @@
-// Arreglo en memoria que simula una base de datos.
-// Los datos se pierden cada vez que el servidor se reinicia.
-// Más adelante en el curso lo reemplazaremos por persistencia real.
+// !Arreglo en memoria que simula una base de datos.
+// !Los datos se pierden cada vez que el servidor se reinicia.
+// !Más adelante en el curso lo reemplazaremos por persistencia real.
 
 export interface Libro {
   id: number;

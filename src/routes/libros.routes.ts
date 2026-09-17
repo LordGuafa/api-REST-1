@@ -3,15 +3,15 @@ import libros, { Libro } from "../data/libros";
 
 const router = express.Router();
 
-// Variable auxiliar para generar nuevos identificadores.
+// **Variable auxiliar para generar nuevos identificadores.
 let siguienteId = 4;
 
-// ------------------------------------------------------------
-// GET /libros
-// Lista todos los libros. Admite parámetros de consulta (query params)
-// opcionales para filtrar resultados: autor, genero, disponible.
-// Ejemplo: GET /libros?autor=Orwell&disponible=true
-// ------------------------------------------------------------
+// **------------------------------------------------------------
+// **GET /libros
+// **Lista todos los libros. Admite parámetros de consulta (query params)
+// **opcionales para filtrar resultados: autor, genero, disponible.
+// **Ejemplo: GET /libros?autor=Orwell&disponible=true
+// **------------------------------------------------------------
 router.get("/", (req, res) => {
   const { autor, genero, disponible } = req.query as {
     autor?: string;
@@ -40,11 +40,11 @@ router.get("/", (req, res) => {
   res.status(200).json(resultado);
 });
 
-// ------------------------------------------------------------
-// GET /libros/:id
-// Obtiene un libro específico mediante un parámetro de ruta (path param).
-// Ejemplo: GET /libros/2
-// ------------------------------------------------------------
+// **------------------------------------------------------------
+// **GET /libros/:id
+// **Obtiene un libro específico mediante un parámetro de ruta (path param).
+// **Ejemplo: GET /libros/2
+// **------------------------------------------------------------
 router.get("/:id", (req, res) => {
   const id = Number(req.params.id);
   const libro = libros.find((libro) => libro.id === id);
@@ -56,10 +56,10 @@ router.get("/:id", (req, res) => {
   res.status(200).json(libro);
 });
 
-// ------------------------------------------------------------
-// POST /libros
-// Crea un nuevo libro a partir del cuerpo (body) de la petición.
-// ------------------------------------------------------------
+// **------------------------------------------------------------
+// **POST /libros
+// **Crea un nuevo libro a partir del cuerpo (body) de la petición.
+// **------------------------------------------------------------
 router.post("/", (req, res) => {
   const { titulo, autor, genero, disponible } = req.body;
 
@@ -81,10 +81,10 @@ router.post("/", (req, res) => {
   res.status(201).json(nuevoLibro);
 });
 
-// ------------------------------------------------------------
-// PUT /libros/:id
-// Actualiza un libro existente identificado por su id.
-// ------------------------------------------------------------
+// **------------------------------------------------------------
+// **PUT /libros/:id
+// **Actualiza un libro existente identificado por su id.
+// **------------------------------------------------------------
 router.put("/:id", (req, res) => {
   const id = Number(req.params.id);
   const libro = libros.find((libro) => libro.id === id);
@@ -103,10 +103,11 @@ router.put("/:id", (req, res) => {
   res.status(200).json(libro);
 });
 
-// ------------------------------------------------------------
-// DELETE /libros/:id
-// Elimina un libro identificado por su id.
-// ------------------------------------------------------------
+// **------------------------------------------------------------
+// **DELETE /libros/:id
+// **Elimina un libro identificado por su id.
+// **------------------------------------------------------------
+
 router.delete("/:id", (req, res) => {
   const id = Number(req.params.id);
   const indice = libros.findIndex((libro) => libro.id === id);
